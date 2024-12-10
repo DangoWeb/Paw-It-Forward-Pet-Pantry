@@ -70,14 +70,14 @@ header {
             gap: 0;
 
             h1 {
-                font-size: 50px;
+                font-size: 40px;
                 font-weight: 400;
                 line-height: 50px;
                 text-transform: uppercase;
             }
 
             h3 {
-                font-size: 35px;
+                font-size: 25px;
                 font-weight: 400;
                 line-height: 35px;
             }
@@ -101,10 +101,11 @@ header {
             flex: 1 0 0;
             border-right: 2px solid var(--Theme, #00C7DE);
             text-shadow: 1px 2px 0px #00C7DE;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 400;
             text-transform: uppercase;
             transition: 0.5s;
+            position: relative;
 
             img {
                 width: 25px;
@@ -117,7 +118,7 @@ header {
             }
         }
 
-        .item:hover,
+        .link:hover,
         .link.active {
             background: var(--Theme, #00C7DE);
             transition: 0.5s;
@@ -142,7 +143,6 @@ main {
 
         img {
             width: 600px;
-            height: 350px;
             border-radius: 10px;
             border: 5px solid var(--Theme, #00C7DE);
         }
@@ -163,6 +163,10 @@ main {
                 gap: 5px;
                 border-radius: 10px;
                 background: var(--Theme, #00C7DE);
+                color: var(--Background, #FFF);
+                font-size: 17.5px;
+                font-weight: 400;
+                text-transform: uppercase;
 
                 img {
                     height: 10px;
