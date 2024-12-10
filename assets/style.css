@@ -165,11 +165,11 @@ main {
 
                 img {
                     height: 10px;
-                    width: fit-content;
+                    width: min-content;
                 }
             }
 
-            h6 {
+            h5 {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 font-size: 30px;
