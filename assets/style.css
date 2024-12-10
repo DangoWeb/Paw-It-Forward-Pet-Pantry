@@ -21,7 +21,7 @@ body {
     margin: 0;
 }
 
-button {
+.button {
     display: flex;
     padding: 10px 15px;
     justify-content: center;
@@ -116,7 +116,7 @@ header {
             font-size: 20px;
             font-weight: 400;
             text-transform: uppercase;
-            transition: 0.5s;
+            transition: 0.25s;
             position: relative;
             overflow: hidden;
 
@@ -128,13 +128,19 @@ header {
                 position: absolute;
                 bottom: -10px;
                 left: calc(50% - (25px / 2));
+                transition: 0.25s;
             }
         }
 
         .link:hover,
         .link.active {
             background: var(--Theme, #00C7DE);
-            transition: 0.5s;
+            transition: 0.25s;
+
+            img[hover] {
+                bottom: -20px;
+                transition: 0.25s;
+            }
         }
     }
 }
@@ -232,8 +238,8 @@ footer {
         align-self: stretch;
 
         img {
-            width: 100px;
-            height: 100px;
+            width: 125px;
+            height: 125px;
         }
 
         .links {
@@ -259,6 +265,7 @@ footer {
         width: -webkit-fill-available;
         background-image: url('paw_slant_line_piece.png');
         background-repeat: space;
+        background-size: 12px;
         height: 12px;
     }
 
