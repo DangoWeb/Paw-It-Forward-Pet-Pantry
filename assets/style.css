@@ -165,6 +165,7 @@ main {
 
                 img {
                     height: 10px;
+                    width: fit-content;
                 }
             }
 
