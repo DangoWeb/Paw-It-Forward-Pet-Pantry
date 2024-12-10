@@ -116,6 +116,7 @@ header {
             }
         }
 
+        .item:hover,
         .link.active {
             background: var(--Theme, #00C7DE);
             transition: 0.5s;
@@ -161,6 +162,10 @@ main {
                 gap: 5px;
                 border-radius: 10px;
                 background: var(--Theme, #00C7DE);
+
+                img {
+                    height: 10px;
+                }
             }
 
             h6 {
