@@ -1,0 +1,37 @@
+<div class="sidebar">
+    <% if (cms.articles.sort((a, b) => new Date(b.date) - new Date(a.date)).filter(article => !article.unlisted).length > 0) { %>
+	<h3>Recent Articles</h3>
+	<ul>
+		<% for (let i = 0; i < 5 && i < cms.articles.sort((a, b) => new Date(b.date) - new Date(a.date)).filter(article => !article.unlisted).length; i++) { const article = cms.articles.sort((a, b) => new Date(b.date) - new Date(a.date)).filter(article => !article.unlisted)[i]; %>
+		<li><a href="<%- vars.domain %>/blog/<%= new Date(article.date).getFullYear() %>/<%= article.slug %>"><%= article.title %></a></li>
+		<% } %>
+	</ul>
+    <% } %>
+    <%  var tags = {};
+    for (article of cms.articles) {
+        if (article.tags && !article.unlisted) {
+            for (tag of article.tags) {
+                tag = tag.toLowerCase();
+                if (!tags[tag]) {
+                    tags[tag] = [];
+                };
+                tags[tag].push(article);
+            };
+        };
+    };
+    var sortedTagsObj = {};
+    Object.keys(tags).sort(function(a, b) {
+        return tags[b].length - tags[a].length;
+    }).forEach(function(key) {
+        sortedTagsObj[key] = tags[key];
+    });
+    tags = sortedTagsObj; 
+    if (Object.keys(tags).length != 0) { %>
+	<h3>Popular Tags</h3>
+	<ul>
+		<% for (let i = 0; i < Object.keys(tags).length; i++) { const tag = Object.keys(tags)[i]; %>
+		<li><a href="<%- vars.domain %>/tags/<%= tag.toLowerCase().replaceAll(" ", "-") %>">#<%= tag.toLowerCase().replaceAll(" ", "-") %> (<%= tags[tag].length %>)</a></li>
+		<% } %>
+	</ul>
+    <% } %>
+</div>

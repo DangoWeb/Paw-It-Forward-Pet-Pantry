@@ -1,0 +1,20 @@
+<footer>
+	<div class="top">
+		<img src="<%- vars.asset_prefix %><%= cms.siteDetails[0].logo.path %>" alt="<%= cms.siteDetails[0].title %>">
+		<div class="links">
+			<% cms.menu.forEach(item => { %>
+			<a class="link <% if ((item.title === title) || ((item.title === 'Home') && (title === ''))) { %>active<% } %>" href="<%= item.link %>"><%= item.title %></a>
+			<% }) %>
+		</div>
+	</div>
+	<div class="paws"></div>
+	<div class="bottom">
+		<h6><%- cms.siteDetails[0].footerText || '' %></h6>
+		<div class="buttons">
+			<% cms.siteDetails[0].footerButtons.forEach(button => { %>
+			<a href="<%= button.link %>" class="button" <% if (button.backgroundColor) { %> style="background-color: <%= button.backgroundColor %>" <% } %>><% if (button.icon) { %><img src="<%- vars.asset_prefix %><%= button.icon.path %>" alt="<%= button.icon.alt %>"><% } %><%= button.text %></a>
+			<% }) %>
+		</div>
+	</div>
+	<!-- Made by Faisal N (faisaln.com) @ Dango Web Solutions (dangoweb.com) -->
+</footer>

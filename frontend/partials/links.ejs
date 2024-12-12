@@ -1,0 +1,36 @@
+<% cms.menu.sort((a, b) => {
+    if (a._o !== b._o) {
+        return a._o - b._o;
+    } else if (a._pid && b._pid && a._pid === b._pid) {
+        return a._o - b._o;
+    } else if (a._pid && b._id && a._pid === b._id) {
+        return 1;
+    } else if (a._id && b._pid && a._id === b._pid) {
+        return -1;
+    } else {
+        return 0;
+    };
+});
+const dropdowns = {};
+for (item of cms.menu) {
+    if (item._pid) {
+        const parent = cms.menu.find(parentItem => parentItem._id === item._pid);
+        if (parent && !dropdowns[parent._id]) {
+            dropdowns[parent._id] = [];
+        };
+        if (parent && parent._id && parent._id === item._pid && dropdowns[parent._id].length === 0) {
+            dropdowns[parent._id].push(parent);
+        };
+        dropdowns[parent._id].push(item);
+    };
+};
+for (item of cms.menu) { if (!item._pid) { if (dropdowns[item._id] && dropdowns[item._id].length > 0) { %>
+<div class="dropdown">
+	<a href="<%= item.link %>" title="<%= item.title %>"><%= item.title %></a>
+	<div class="menu">
+		<% for (dropdownItem of dropdowns[item._id].slice(1)) { %>
+		<a href="<%= dropdownItem.link %>" title="<%= dropdownItem.title %>"><%= dropdownItem.title %></a>
+		<% } %>
+	</div>
+</div>
+<% } else { %><a href="<%= item.link %>" title="<%= item.title %>"><%= item.title %></a><% }}} %>

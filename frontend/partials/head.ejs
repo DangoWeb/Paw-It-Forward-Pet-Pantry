@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="pragma" content="cache">
+<meta http-equiv="expires" content="1 day">
+<meta http-equiv="cache-control" content="max-age=86400, must-revalidate">
+<meta name="author" content="<% if (title != '') { %><%- title %> | <% } %><%= cms.siteDetails[0].title %>">
+<meta name="title" content="<% if (title != '') { %><%- title %> | <% } %><%= cms.siteDetails[0].title %>">
+<meta name="description" content="<%= cms.siteDetails[0].description %>">
+<meta name="keywords" content="<% var keywords = ""; cms.siteDetails[0].keywords.forEach(keyword => keywords += keyword + ", "); keywords = keywords.slice(0, -2); %><%= keywords %>">
+<meta name="description" content="<%= cms.siteDetails[0].description %>">
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%- vars.domain %>" />
+<meta property="og:title" content="<% if (title != '') { %><%- title %> | <% } %><%= cms.siteDetails[0].title %>" />
+<meta property="og:description" content="<%= cms.siteDetails[0].description %>" />
+<meta property="twitter:url" content="<%- vars.domain %>" />
+<meta property="twitter:title" content="<% if (title != '') { %><%- title %> | <% } %><%= cms.siteDetails[0].title %>" />
+<meta property="twitter:description" content="<%= cms.siteDetails[0].description %>" />
+<title><% if (title != '') { %><%- title %> | <% } %><%= cms.siteDetails[0].title %></title>
+<link rel="canonical" href="https://<%- vars.domain %>/">
+<link rel="icon" href="<%- vars.asset_prefix %><%= cms.siteDetails[0].favicon.path %>">
+<link rel="icon" type="image/x-icon" href="<%- vars.asset_prefix %><%= cms.siteDetails[0].favicon.path %>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="<%- vars.domain %>/style.css" as="stylesheet" type="text/css">
+<link rel="preload" href="<%- vars.domain %>/style.css" as="style" type="text/css">

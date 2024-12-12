@@ -1,0 +1,22 @@
+<header>
+	<div class="top"><img src="<%- vars.domain %>/paw.png">
+		<p>Happening Now -</p><a href="">Harvest Treasures Garage Sale</a>
+	</div>
+	<div class="logo">
+		<img src="<%- vars.asset_prefix %><%= cms.siteDetails[0].logo.path %>" alt="<%= cms.siteDetails[0].title %>">
+		<div class="inner">
+			<h1><%= cms.siteDetails[0].title %></h1>
+			<h3><%= cms.siteDetails[0].description %></h3>
+		</div>
+	</div>
+	<div class="links">
+		<% cms.menu.forEach(item => { %>
+		<a class="link <% if ((item.title === title) || ((item.title === 'Home') && (title === ''))) { %>active<% } %>" href="<%= item.link %>">
+			<img src="<%- vars.domain %>/paw.png">
+			<%= item.title %>
+			<img src="<%- vars.domain %>/paw.png">
+			<img src="<%- vars.domain %>/paw_theme.png" hover>
+		</a>
+		<% }) %>
+	</div>
+</header>
