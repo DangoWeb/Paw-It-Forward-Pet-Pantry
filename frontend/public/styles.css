@@ -45,6 +45,13 @@ a {
 	transition: 0.25s;
 }
 
+page-title {
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    padding: 0 !important;
+}
+
 header {
 	display: flex;
 	flex-direction: column;
