@@ -53,12 +53,7 @@ function cmsdata() {
             query: `{
                 siteDetails: content(model: "siteDetails")
                 menu: content(model: "menu")
-                home: content(model: "home")
-                blog: content(model: "blog")
-                articles: content(model: "articles")
-                giveaway: content(model: "giveaway")
-                contact: content(model: "contact")
-                coins: content(model: "coins")
+                events: content(model: "events")
             }`
         }),
     })

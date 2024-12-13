@@ -8,34 +8,19 @@
 <body>
 	<div class="body">
 		<%- include('../partials/header.ejs'); %>
-		<a class="item" href="">
-			<img src="https://dangoweb.com/banner.png" alt="Harvest Treasures Garage Sale">
+		<% if (cms.events && cms.events.length > 0) { %>
+		<% cms.events.slice(0, 2).forEach(event => { %>
+		<a class="item" href="<%= event.link %>">
+			<img src="<%- vars.asset_prefix %><%= event.image.path %>" alt="<%= event.title %>">
 			<div class="inner">
-				<div class="alert"><img src="<%- vars.domain %>/paw.png"> Happening Now</div>
-				<h5>Harvest Treasures Garage Sale</h5>
-				<p>Come on out & support the animals of Cove Animal Rescue! Our Harvest Treasures Garage Sale will
-					be held on both November 2nd & 3rd from 12-3 p.m</p>
+				<% if (((new Date(event.startDate + 'T00:00:00')) < (new Date())) && ((new Date(event.endDate + 'T00:00:00')) > (new Date()))) { %><div class="alert"><img src="<%- vars.domain %>/paw.png"> Happening Now</div><% } %>
+				<h5><%= event.title %></h5>
+				<p><%= event.description %></p>
 			</div>
 		</a>
-		<a class="item" href="">
-			<img src="https://dangoweb.com/banner.png" alt="Harvest Treasures Garage Sale">
-			<div class="inner">
-				<div class="alert"><img src="<%- vars.domain %>/paw.png"> Happening Now</div>
-				<h5>Harvest Treasures Garage Sale</h5>
-				<p>Come on out & support the animals of Cove Animal Rescue! Our Harvest Treasures Garage Sale will
-					be held on both November 2nd & 3rd from 12-3 p.m</p>
-			</div>
-		</a>
-		<a class="item" href="">
-			<img src="https://dangoweb.com/banner.png" alt="Harvest Treasures Garage Sale">
-			<div class="inner">
-				<div class="alert"><img src="<%- vars.domain %>/paw.png"> Happening Now</div>
-				<h5>Harvest Treasures Garage Sale</h5>
-				<p>Come on out & support the animals of Cove Animal Rescue! Our Harvest Treasures Garage Sale will
-					be held on both November 2nd & 3rd from 12-3 p.m</p>
-			</div>
-		</a>
-		<a href="/events" class="button">View All Events</a>
+		<% }) %>
+		<% if (cms.events.length > 3) { %><a href="/events" class="button">View All Events</a><% } %>
+		<% } %>
 		<%- include('../partials/footer.ejs'); %>
 	</div>
 </body>
