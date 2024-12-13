@@ -177,12 +177,14 @@ main {
 	align-self: stretch;
 	background: var(--Background);
 	z-index: 1;
+	width: -webkit-fill-available;
 
 	.item {
 		display: flex;
 		align-items: flex-start;
 		gap: 40px;
 		align-self: stretch;
+		width: -webkit-fill-available;
 
 		img {
 			width: min(600px, 40vw);
