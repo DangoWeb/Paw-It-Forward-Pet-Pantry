@@ -9,11 +9,11 @@
 	<div class="body">
 		<%- include('../partials/header.ejs'); %>
 		<% if (cms.events && cms.events.length > 0) { %>
-		<% cms.events.slice(0, 2).forEach(event => { %>
+		<% cms.events.slice(0, 3).forEach(event => { %>
 		<a class="item" href="<%= event.link %>">
-			<img src="<%- vars.asset_prefix %><%= event.image.path %>" alt="<%= event.title %>">
+			<div class="image" style="background-image: url('<%- vars.asset_prefix %><%= event.image.path %>');" alt="<%= event.title %>"></div>
 			<div class="inner">
-				<% if (((new Date(event.startDate + 'T00:00:00')) < (new Date())) && ((new Date(event.endDate + 'T00:00:00')) > (new Date()))) { %><div class="alert"><img src="<%- vars.domain %>/paw.png"> Happening Now</div><% } %>
+				<% if (((new Date(event.startDate)) < (new Date())) && ((new Date(event.endDate)) > (new Date()))) { %><div class="alert"><img src="<%- vars.domain %>/paw.png"> Happening Now</div><% } %>
 				<h5><%= event.title %></h5>
 				<p><%= event.description %></p>
 			</div>

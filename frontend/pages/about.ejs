@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<%- include('../partials/head.ejs'); %>
+</head>
+
+<body>
+	<div class="body">
+		<%- include('../partials/header.ejs'); %>
+		<h3><%= cms.about[0].title %></h3>
+		<%- cms.about[0].content %>
+		<% if (cms.about[0].button.text && cms.about[0].button.link) { %><a href="<%= cms.about[0].button.link %>" class="button"><%= cms.about[0].button.text %></a><% } %>
+		<%- include('../partials/footer.ejs'); %>
+	</div>
+</body>
+<%- include('../partials/foot.ejs'); %>
+
+</html>

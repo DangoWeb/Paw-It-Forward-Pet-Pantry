@@ -54,6 +54,8 @@ function cmsdata() {
                 siteDetails: content(model: "siteDetails")
                 menu: content(model: "menu")
                 events: content(model: "events")
+                about: content(model: "about")
+                volunteer: content(model: "volunteer")
             }`
         }),
     })
@@ -93,6 +95,24 @@ async function startApp() {
     app.get('/', async (req, res) => {
         await allRoutes(req, res);
         return res.render('index', { vars: defaults, title: '', cms });
+    });
+
+    app.get('/about', async (req, res) => {
+        await allRoutes(req, res);
+        if (cms.about[0]._state != 0) {
+            return res.render('about', { vars: defaults, title: cms.about[0].title || 'About Us', cms });
+        } else {
+            return res.render('404', { vars: defaults, title: '404', cms });
+        };
+    });
+
+    app.get('/volunteer', async (req, res) => {
+        await allRoutes(req, res);
+        if (cms.volunteer[0]._state != 0) {
+            return res.render('volunteer', { vars: defaults, title: cms.volunteer[0].title || 'Volunteer', cms });
+        } else {
+            return res.render('404', { vars: defaults, title: '404', cms });
+        };
     });
 
     app.get('/admin', async (req, res) => {
