@@ -115,6 +115,11 @@ async function startApp() {
         };
     });
 
+    app.get('/events', async (req, res) => {
+        await allRoutes(req, res);
+        return res.render('events', { vars: defaults, title: 'Events', cms });
+    });
+
     app.get('/admin', async (req, res) => {
         res.redirect(`https://cms.dangoweb.com/:${process.env.SITE}`);
     });

@@ -1,6 +1,7 @@
 <header>
 	<div class="top"><img src="<%- vars.domain %>/paw.png">
-		<p>Happening Now -</p><a href="">Harvest Treasures Garage Sale</a>
+		<% happeningNow = cms.events.sort((a, b) => a._o - b._o).find(event => ((new Date(event.startDate)) < (new Date())) && ((new Date(event.endDate)) > (new Date()))); %>
+		<% if (happeningNow) { %><p>Happening Now -</p><a href="<%= happeningNow.link %>"><%= happeningNow.title %></a><% } %>
 	</div>
 	<div class="logo">
 		<img src="<%- vars.asset_prefix %><%= cms.siteDetails[0].logo.path %>" alt="<%= cms.siteDetails[0].title %>">

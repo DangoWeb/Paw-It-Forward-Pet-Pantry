@@ -8,8 +8,7 @@
 <body>
 	<div class="body">
 		<%- include('../partials/header.ejs'); %>
-		<% if (cms.events && cms.events.length > 0) { %>
-		<% cms.events.sort((a, b) => a._o - b._o).slice(0, 3).forEach(event => { %>
+		<% if (cms.events && cms.events.length > 0) { cms.events.sort((a, b) => a._o - b._o).forEach(event => { %>
 		<a class="item" href="<%= event.link %>">
 			<div class="image" style="background-image: url('<%- vars.asset_prefix %><%= event.image.path %>');" alt="<%= event.title %>"></div>
 			<div class="inner">
@@ -18,8 +17,8 @@
 				<p><%= event.description %></p>
 			</div>
 		</a>
-		<% }) %>
-		<% if (cms.events.length > 3) { %><a href="/events" class="button">View All Events</a><% } %>
+		<% })} else { %>
+		<p>No events</p>
 		<% } %>
 		<%- include('../partials/footer.ejs'); %>
 	</div>
