@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<%- include('../partials/head.ejs'); %>
+</head>
+
+<body>
+	<div class="body">
+		<%- include('../partials/header.ejs'); %>
+		<h3><%= cms.donate[0].title %></h3>
+		<%- cms.donate[0].content %>
+		<% if (cms.donate[0].button.text && cms.donate[0].button.link) { %><a href="<%= cms.donate[0].button.link %>" class="button"><%= cms.donate[0].button.text %></a><% } %>
+		<%- include('../partials/footer.ejs'); %>
+	</div>
+</body>
+<%- include('../partials/foot.ejs'); %>
+
+</html>

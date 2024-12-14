@@ -56,6 +56,7 @@ function cmsdata() {
                 events: content(model: "events")
                 about: content(model: "about")
                 volunteer: content(model: "volunteer")
+                donate: content(model: "donate")
             }`
         }),
     })
@@ -118,6 +119,15 @@ async function startApp() {
     app.get('/events', async (req, res) => {
         await allRoutes(req, res);
         return res.render('events', { vars: defaults, title: 'Events', cms });
+    });
+
+    app.get('/donate', async (req, res) => {
+        await allRoutes(req, res);
+        if (cms.donate[0]._state != 0) {
+            return res.render('donate', { vars: defaults, title: cms.donate[0].title || 'Donate Now', cms });
+        } else {
+            return res.render('404', { vars: defaults, title: '404', cms });
+        };
     });
 
     app.get('/admin', async (req, res) => {
