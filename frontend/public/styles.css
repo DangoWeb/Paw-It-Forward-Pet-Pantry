@@ -2,6 +2,7 @@ html {
 	--Background: #fff;
 	--Text: #000;
 	--Theme: #00c7de;
+	scroll-behavior: smooth;
 }
 
 .body {
@@ -81,6 +82,12 @@ header {
 		a {
 			text-decoration: underline;
 			text-align: center;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			line-clamp: 2;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 	}
 
@@ -183,6 +190,14 @@ main {
 	font-size: 20px;
 	font-weight: 400;
 
+	> * {
+		width: -webkit-fill-available;
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		hyphens: auto;
+		overflow-x: hidden;
+	}
+
 	> h3 {
 		font-size: 35px;
 		font-weight: 400;
@@ -229,11 +244,15 @@ main {
 
 				img {
 					height: 10px;
-					width: min-content;
+					width: 13px;
 				}
 			}
 
 			h5 {
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 2;
+				line-clamp: 2;
 				overflow: hidden;
 				text-overflow: ellipsis;
 				font-size: 30px;
@@ -241,7 +260,6 @@ main {
 				line-height: 35px;
 				text-decoration: underline;
 				padding-top: 5px;
-				white-space: nowrap;
 				width: 100%;
 			}
 
@@ -355,8 +373,12 @@ footer {
 
 @media screen and (max-width: 1200px) {
 	header {
-		.top *:not(a) {
-			display: none;
+		.top:has(p) {
+			padding: 10px 15px;
+
+			*:not(a) {
+				display: none;
+			}
 		}
 
 		.logo {
